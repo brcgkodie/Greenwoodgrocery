@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
-import { ShoppingBag, X, MapPin, Clock, Phone, Instagram, ChevronDown, Check, Wine, Coffee, Leaf, ExternalLink, ShoppingCart, Menu as MenuIcon } from "lucide-react";
+import { ShoppingBag, X, MapPin, Clock, Phone, Instagram, ChevronDown, Check, Wine, Coffee, Leaf, ExternalLink, ShoppingCart, Menu as MenuIcon, Star, Quote } from "lucide-react";
 
 // ----- IMAGES -----
 const IMAGES = {
@@ -166,7 +166,7 @@ function Hero() {
             <div className="mt-10 flex flex-wrap gap-3">
               <div className="flex items-center gap-2 text-xs text-[#1f3a2b]/60 border border-[#1f3a2b]/15 rounded-full px-4 py-2">
                 <Clock size={13} />
-                <span>Mon-Fri 9a-7p &middot; Sat 9a-6p &middot; Sun 10a-6p</span>
+                <span>Wed-Thu & Sun 10a-5p &middot; Fri-Sat 10a-6p</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-[#1f3a2b]/60 border border-[#1f3a2b]/15 rounded-full px-4 py-2">
                 <Phone size={13} />
@@ -555,6 +555,137 @@ function Story() {
   );
 }
 
+const REVIEWS = [
+  {
+    text: "I am a caprese sandwich connoisseur and their Landrance rocked my world. It's one of the top five sandwiches I've ever had. I dream about it now that I'm back in NC.",
+    author: "Mark S.",
+    source: "TripAdvisor",
+    rating: 5,
+  },
+  {
+    text: "We make a point to stop by whenever we are in the Charlottesville area. The sandwiches are absolutely amazing! Fresh bread, delicious ingredients and so very tasty!",
+    author: "Visitor",
+    source: "TripAdvisor",
+    rating: 5,
+  },
+  {
+    text: "I love the Blue Slate sandwich. It's a 10/10, great size and flavor. Prices are steep but the quality is great and everything is so fresh.",
+    author: "Tatiana A.",
+    source: "Yelp",
+    rating: 5,
+  },
+  {
+    text: "A wonderful place to find a bit of everything gourmet! Their sandwiches are delicious, always fresh! Excellent selection of wine and beer.",
+    author: "Visitor",
+    source: "Apple Maps",
+    rating: 5,
+  },
+  {
+    text: "Amazing Italian sandwiches, made to order. Great variety of beverages, wine, sweet treats and even little gifts. Beautiful setting to top off the experience.",
+    author: "Visitor",
+    source: "TripAdvisor",
+    rating: 5,
+  },
+];
+
+function Reviews() {
+  return (
+    <section className="border-t border-[#1f3a2b]/10 bg-[#f4efe3]">
+      <div className="max-w-6xl mx-auto px-5 py-20 md:py-28">
+        <div className="flex items-baseline justify-between mb-4">
+          <div>
+            <div className="text-[10px] tracking-[0.3em] uppercase text-[#1f3a2b]/60 mb-4">What people say</div>
+            <h2 className="font-serif text-[#1f3a2b] text-4xl md:text-5xl leading-tight">
+              Worth the drive.
+            </h2>
+          </div>
+          <div className="hidden md:flex items-center gap-3">
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={16} className="text-[#d4a017] fill-[#d4a017]" />
+              ))}
+            </div>
+            <span className="text-sm text-[#1f3a2b]/60">
+              4.0 on TripAdvisor &middot; 4.2 on Yelp &middot; 114+ reviews
+            </span>
+          </div>
+        </div>
+        <p className="font-serif italic text-[#1f3a2b]/60 text-lg mb-14 max-w-xl">
+          From day-trippers on Route 250 to locals who've been coming since '99.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {REVIEWS.slice(0, 3).map((r, i) => (
+            <div
+              key={i}
+              className="bg-[#faf6ed] rounded-2xl p-7 border border-[#1f3a2b]/10 flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(r.rating)].map((_, j) => (
+                    <Star key={j} size={13} className="text-[#d4a017] fill-[#d4a017]" />
+                  ))}
+                </div>
+                <p className="font-serif italic text-[#1f3a2b]/80 text-[15px] leading-relaxed">
+                  "{r.text}"
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-[#1f3a2b]/10 flex items-center justify-between">
+                <span className="text-sm text-[#1f3a2b]/70 font-medium">{r.author}</span>
+                <span className="text-[10px] tracking-[0.15em] uppercase text-[#1f3a2b]/40">{r.source}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Second row - 2 reviews */}
+        <div className="grid md:grid-cols-2 gap-6 mt-6">
+          {REVIEWS.slice(3).map((r, i) => (
+            <div
+              key={i}
+              className="bg-[#faf6ed] rounded-2xl p-7 border border-[#1f3a2b]/10 flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(r.rating)].map((_, j) => (
+                    <Star key={j} size={13} className="text-[#d4a017] fill-[#d4a017]" />
+                  ))}
+                </div>
+                <p className="font-serif italic text-[#1f3a2b]/80 text-[15px] leading-relaxed">
+                  "{r.text}"
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-[#1f3a2b]/10 flex items-center justify-between">
+                <span className="text-sm text-[#1f3a2b]/70 font-medium">{r.author}</span>
+                <span className="text-[10px] tracking-[0.15em] uppercase text-[#1f3a2b]/40">{r.source}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-[#1f3a2b]/50">
+          <a
+            href="https://www.tripadvisor.com/Restaurant_Review-g57648-d2447173-Reviews-Greenwood_Gourmet_Grocery-Crozet_Virginia.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#d4a017] transition-colors flex items-center gap-1.5"
+          >
+            Read on TripAdvisor <ExternalLink size={12} />
+          </a>
+          <a
+            href="https://www.yelp.com/biz/greenwood-gourmet-grocery-crozet"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#d4a017] transition-colors flex items-center gap-1.5"
+          >
+            Read on Yelp <ExternalLink size={12} />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Visit() {
   return (
     <section id="visit" className="border-t border-[#1f3a2b]/10">
@@ -589,16 +720,20 @@ function Visit() {
             </div>
             <div className="space-y-1.5 text-[#1f3a2b]/80 text-sm">
               <div className="flex justify-between">
-                <span>Monday - Friday</span>
-                <span className="font-medium text-[#1f3a2b]">9am - 7pm</span>
+                <span>Wednesday - Thursday</span>
+                <span className="font-medium text-[#1f3a2b]">10am - 5pm</span>
               </div>
               <div className="flex justify-between">
-                <span>Saturday</span>
-                <span className="font-medium text-[#1f3a2b]">9am - 6pm</span>
+                <span>Friday - Saturday</span>
+                <span className="font-medium text-[#1f3a2b]">10am - 6pm</span>
               </div>
               <div className="flex justify-between">
                 <span>Sunday</span>
-                <span className="font-medium text-[#1f3a2b]">10am - 6pm</span>
+                <span className="font-medium text-[#1f3a2b]">10am - 5pm</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Monday - Tuesday</span>
+                <span className="font-medium text-[#1f3a2b]/50 italic">Closed</span>
               </div>
             </div>
             <div className="text-sm text-[#1f3a2b]/60 mt-3 italic">
@@ -781,6 +916,7 @@ export default function GreenwoodSite() {
 
       <Provisions />
       <Story />
+      <Reviews />
       <Visit />
       <Footer />
 
