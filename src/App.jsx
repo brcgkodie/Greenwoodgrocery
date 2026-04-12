@@ -1,6 +1,14 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { ShoppingBag, X, MapPin, Clock, Phone, Instagram, ChevronDown, Check, Wine, Coffee, Leaf, ExternalLink, ShoppingCart, Menu as MenuIcon } from "lucide-react";
 
+// ----- IMAGES -----
+const IMAGES = {
+  logo: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1408315939180-OZKE1CUAPS3001CTTPB6/green.png",
+  storefront: "https://static1.squarespace.com/static/53ef7f3be4b0880c7d4fbb28/t/53f13223e4b0b335a2102046/1726688718701/",
+  sandwichMenu: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1726688401523-R6ZCPWVFRDWN8WT6ALCM/Sandwiches2024.png",
+  boxLunch: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1726688396180-SI033NUUYPNOKSD76SPL/BoxLunch2024.png",
+};
+
 // ----- DATA -----
 const SANDWICHES = [
   { id: "blue-slate", name: "Blue Slate", price: 13.79, category: "beef", desc: "Roast beef, Bayley Hazen blue, arugula, red onion jam, horseradish aioli", veg: false },
@@ -54,15 +62,9 @@ function Header({ cartCount, onCartClick }) {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-[#faf6ed]/90 border-b border-[#1f3a2b]/10">
       <div className="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-[#1f3a2b] flex items-center justify-center">
-            <span className="font-serif text-[#faf6ed] text-lg italic">G</span>
-          </div>
-          <div className="leading-none">
-            <div className="font-serif text-[#1f3a2b] text-lg tracking-tight">Greenwood</div>
-            <div className="text-[10px] tracking-[0.2em] text-[#1f3a2b]/60 uppercase mt-0.5">Gourmet Grocery</div>
-          </div>
-        </div>
+        <a href="#" className="flex items-center gap-3">
+          <img src={IMAGES.logo} alt="Greenwood Gourmet Grocery" className="h-10 w-auto" />
+        </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-[#1f3a2b]/80">
           <a href="#menu" className="hover:text-[#1f3a2b] transition-colors">Sandwiches</a>
           <a href="#provisions" className="hover:text-[#1f3a2b] transition-colors">Provisions</a>
@@ -125,55 +127,66 @@ function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-[#1f3a2b]/10">
       <div className="max-w-6xl mx-auto px-5 pt-16 pb-20 md:pt-24 md:pb-28">
-        <div className="text-[10px] tracking-[0.3em] uppercase text-[#1f3a2b]/60 mb-6">
-          Keep it local -- since 1999
-        </div>
-        <h1 className="font-serif text-[#1f3a2b] text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight">
-          Sandwiches,<br />
-          <span className="italic text-[#d4a017]">made to order,</span><br />
-          on Route 250.
-        </h1>
-        <p className="mt-8 max-w-xl text-[#1f3a2b]/75 text-base md:text-lg leading-relaxed">
-          A gourmet grocery on the road between Charlottesville and the Blue Ridge.
-          Heritage sandwiches, hundreds of craft beers and wines, locally sourced
-          provisions, fresh coffee, and pastries baked daily.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a
-            href="#menu"
-            className="bg-[#1f3a2b] text-[#faf6ed] px-7 py-4 rounded-full text-sm tracking-wide hover:bg-[#0f2419] transition-colors inline-flex items-center gap-2"
-          >
-            See the menu <ChevronDown size={16} />
-          </a>
-          <a
-            href="https://greenwoodva.shop"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-[#1f3a2b]/30 text-[#1f3a2b] px-7 py-4 rounded-full text-sm tracking-wide hover:border-[#1f3a2b] transition-colors inline-flex items-center gap-2"
-          >
-            Order online <ExternalLink size={14} />
-          </a>
-          <a href="#visit" className="text-[#1f3a2b] text-sm underline underline-offset-4 decoration-[#d4a017] decoration-2">
-            6701 Rockfish Gap Tpk
-          </a>
-        </div>
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+          <div className="md:col-span-7">
+            <div className="text-[10px] tracking-[0.3em] uppercase text-[#1f3a2b]/60 mb-6">
+              Keep it local &middot; since 1999
+            </div>
+            <h1 className="font-serif text-[#1f3a2b] text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight">
+              Sandwiches,<br />
+              <span className="italic text-[#d4a017]">made to order,</span><br />
+              on Route 250.
+            </h1>
+            <p className="mt-8 max-w-xl text-[#1f3a2b]/75 text-base md:text-lg leading-relaxed">
+              A gourmet grocery on the road between Charlottesville and the Blue Ridge.
+              Heritage sandwiches, hundreds of craft beers and wines, locally sourced
+              provisions, fresh coffee, and pastries baked daily.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href="#menu"
+                className="bg-[#1f3a2b] text-[#faf6ed] px-7 py-4 rounded-full text-sm tracking-wide hover:bg-[#0f2419] transition-colors inline-flex items-center gap-2"
+              >
+                See the menu <ChevronDown size={16} />
+              </a>
+              <a
+                href="https://greenwoodva.shop"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-[#1f3a2b]/30 text-[#1f3a2b] px-7 py-4 rounded-full text-sm tracking-wide hover:border-[#1f3a2b] transition-colors inline-flex items-center gap-2"
+              >
+                Order online <ExternalLink size={14} />
+              </a>
+            </div>
 
-        {/* Quick info pills */}
-        <div className="mt-12 flex flex-wrap gap-3">
-          <div className="flex items-center gap-2 text-xs text-[#1f3a2b]/60 border border-[#1f3a2b]/15 rounded-full px-4 py-2">
-            <Clock size={13} />
-            <span>Mon-Fri 9a-7p &middot; Sat 9a-6p &middot; Sun 10a-6p</span>
+            {/* Quick info pills */}
+            <div className="mt-10 flex flex-wrap gap-3">
+              <div className="flex items-center gap-2 text-xs text-[#1f3a2b]/60 border border-[#1f3a2b]/15 rounded-full px-4 py-2">
+                <Clock size={13} />
+                <span>Mon-Fri 9a-7p &middot; Sat 9a-6p &middot; Sun 10a-6p</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-[#1f3a2b]/60 border border-[#1f3a2b]/15 rounded-full px-4 py-2">
+                <Phone size={13} />
+                <a href="tel:5404566431" className="hover:text-[#1f3a2b]">(540) 456-6431</a>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center gap-2 text-xs text-[#1f3a2b]/60 border border-[#1f3a2b]/15 rounded-full px-4 py-2">
-            <Phone size={13} />
-            <a href="tel:5404566431" className="hover:text-[#1f3a2b]">(540) 456-6431</a>
+
+          {/* Storefront image */}
+          <div className="md:col-span-5 relative">
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-[#1f3a2b]/15 border border-[#1f3a2b]/10">
+              <img
+                src={IMAGES.storefront}
+                alt="Greenwood Gourmet Grocery storefront on Route 250 in Crozet, Virginia"
+                className="w-full h-64 md:h-96 object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-4 -left-4 bg-[#1f3a2b] text-[#faf6ed] rounded-xl px-5 py-3 shadow-lg hidden md:block">
+              <div className="text-[10px] tracking-[0.2em] uppercase text-[#d4a017] mb-0.5">Crozet, VA</div>
+              <div className="font-serif text-sm">6701 Rockfish Gap Tpk</div>
+            </div>
           </div>
         </div>
-      </div>
-      {/* decorative corner mark */}
-      <div className="absolute top-8 right-8 hidden md:block opacity-20">
-        <div className="font-serif italic text-[#1f3a2b] text-sm">est. 1999</div>
-        <div className="w-12 h-px bg-[#1f3a2b] mt-1" />
       </div>
     </section>
   );
@@ -594,14 +607,8 @@ function Footer() {
       <div className="max-w-6xl mx-auto px-5 py-12">
         <div className="grid sm:grid-cols-3 gap-8 mb-10">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-full bg-[#faf6ed]/20 flex items-center justify-center">
-                <span className="font-serif text-[#faf6ed] text-lg italic">G</span>
-              </div>
-              <div className="leading-none">
-                <div className="font-serif text-[#faf6ed] text-lg">Greenwood</div>
-                <div className="text-[10px] tracking-[0.2em] text-[#faf6ed]/60 uppercase mt-0.5">Gourmet Grocery</div>
-              </div>
+            <div className="mb-4">
+              <img src={IMAGES.logo} alt="Greenwood Gourmet Grocery" className="h-10 w-auto brightness-0 invert opacity-80" />
             </div>
             <p className="text-sm text-[#faf6ed]/60 leading-relaxed">
               A country provisions store on Route 250,
