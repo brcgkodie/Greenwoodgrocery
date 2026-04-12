@@ -63,10 +63,10 @@ function Header({ cartCount, onCartClick }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-[#faf6ed]/90 border-b border-[#1f3a2b]/10">
-      <div className="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+    <header className="sticky top-0 z-40 backdrop-blur-md bg-[#faf6ed]/90 border-b border-[#1f3a2b]/8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
-          <img src={IMAGES.logo} alt="Greenwood Gourmet Grocery" className="h-10 w-auto" />
+          <img src={IMAGES.logo} alt="Greenwood Gourmet Grocery" className="h-8 sm:h-10 w-auto" />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-[#1f3a2b]/80">
           <a href="#menu" className="hover:text-[#1f3a2b] transition-colors">Sandwiches</a>
@@ -105,8 +105,8 @@ function Header({ cartCount, onCartClick }) {
       </div>
       {/* Mobile nav */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-[#1f3a2b]/10 bg-[#faf6ed]/95 backdrop-blur-md">
-          <nav className="flex flex-col px-5 py-4 gap-4 text-sm text-[#1f3a2b]/80">
+        <div className="md:hidden border-t border-[#1f3a2b]/8 bg-[#faf6ed]/98 backdrop-blur-lg">
+          <nav className="flex flex-col px-4 py-5 gap-5 text-[15px] text-[#1f3a2b]/70">
             <a href="#menu" onClick={() => setMobileOpen(false)} className="hover:text-[#1f3a2b]">Sandwiches</a>
             <a href="#provisions" onClick={() => setMobileOpen(false)} className="hover:text-[#1f3a2b]">Provisions</a>
             <a href="#story" onClick={() => setMobileOpen(false)} className="hover:text-[#1f3a2b]">Our Story</a>
@@ -128,78 +128,79 @@ function Header({ cartCount, onCartClick }) {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-[#1f3a2b]/10">
-      <div className="max-w-6xl mx-auto px-5 pt-16 pb-20 md:pt-24 md:pb-28">
-        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+    <section className="relative overflow-hidden">
+      {/* Mobile: video above text, full bleed */}
+      <div className="md:hidden relative">
+        <video autoPlay loop muted playsInline poster={IMAGES.hero} className="w-full h-[56vw] object-cover">
+          <source src="/images/hero-video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#faf6ed]" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 md:pt-24 md:pb-32">
+        <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-center">
           <div className="md:col-span-7">
-            <div className="text-[10px] tracking-[0.3em] uppercase text-[#1f3a2b]/60 mb-6">
+            <div className="text-[10px] tracking-[0.35em] uppercase text-[#1f3a2b]/50 mb-5 md:mb-6">
               Keep it local &middot; since 1999
             </div>
-            <h1 className="font-serif text-[#1f3a2b] text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight">
+            <h1 className="font-serif text-[#1f3a2b] text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight">
               Local provisions,<br />
               <span className="italic text-[#d4a017]">handpicked goods,</span><br />
               on Route 250.
             </h1>
-            <p className="mt-8 max-w-xl text-[#1f3a2b]/75 text-base md:text-lg leading-relaxed">
+            <p className="mt-6 md:mt-8 max-w-xl text-[#1f3a2b]/65 text-[15px] md:text-lg leading-relaxed">
               A country grocery built on the foundation of a roadside fruit stand.
               Locally sourced provisions, made-to-order sandwiches, hundreds of craft
               beers and wines, fresh coffee, and pastries &mdash; since 1999.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-8 md:mt-10 flex flex-wrap items-center gap-3">
               <a
                 href="#menu"
-                className="bg-[#1f3a2b] text-[#faf6ed] px-7 py-4 rounded-full text-sm tracking-wide hover:bg-[#0f2419] transition-colors inline-flex items-center gap-2"
+                className="bg-[#1f3a2b] text-[#faf6ed] px-6 py-3.5 md:px-7 md:py-4 rounded-full text-sm tracking-wide hover:bg-[#0f2419] transition-colors inline-flex items-center gap-2"
               >
-                See the menu <ChevronDown size={16} />
+                See the menu <ChevronDown size={15} />
               </a>
               <a
                 href="https://greenwoodva.shop"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-[#1f3a2b]/30 text-[#1f3a2b] px-7 py-4 rounded-full text-sm tracking-wide hover:border-[#1f3a2b] transition-colors inline-flex items-center gap-2"
+                className="border border-[#1f3a2b]/20 text-[#1f3a2b] px-6 py-3.5 md:px-7 md:py-4 rounded-full text-sm tracking-wide hover:border-[#1f3a2b]/60 transition-colors inline-flex items-center gap-2"
               >
-                Order online <ExternalLink size={14} />
+                Order online <ExternalLink size={13} />
               </a>
             </div>
 
             {/* Quick info pills */}
-            <div className="mt-10 flex flex-wrap gap-3">
-              <div className="flex items-center gap-2 text-xs text-[#1f3a2b]/60 border border-[#1f3a2b]/15 rounded-full px-4 py-2">
-                <Clock size={13} />
+            <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-2.5">
+              <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#1f3a2b]/50 border border-[#1f3a2b]/10 rounded-full px-4 py-2">
+                <Clock size={12} />
                 <span>Wed-Thu & Sun 10a-5p &middot; Fri-Sat 10a-6p</span>
               </div>
-              <div className="flex items-center gap-2 text-xs text-[#1f3a2b]/60 border border-[#1f3a2b]/15 rounded-full px-4 py-2">
-                <Phone size={13} />
+              <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#1f3a2b]/50 border border-[#1f3a2b]/10 rounded-full px-4 py-2">
+                <Phone size={12} />
                 <a href="tel:5404566431" className="hover:text-[#1f3a2b]">(540) 456-6431</a>
               </div>
             </div>
           </div>
 
-          {/* Storefront video */}
-          <div className="md:col-span-5 relative flex items-center justify-center">
-            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-[#1f3a2b]/20 w-full relative">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster={IMAGES.hero}
-                className="w-full h-72 md:h-96 object-cover"
-              >
+          {/* Desktop: Storefront video */}
+          <div className="hidden md:flex md:col-span-5 relative items-center justify-center">
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-[#1f3a2b]/15 w-full relative">
+              <video autoPlay loop muted playsInline poster={IMAGES.hero} className="w-full h-[420px] object-cover">
                 <source src="/images/hero-video.mp4" type="video/mp4" />
               </video>
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#1f3a2b]/90 to-transparent p-6 pt-16">
-                <div className="flex items-center gap-2 text-[#faf6ed]/90 text-sm mb-2">
-                  <MapPin size={14} className="text-[#d4a017]" />
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#1f3a2b]/80 to-transparent p-6 pt-20">
+                <div className="flex items-center gap-2 text-[#faf6ed]/80 text-sm mb-1.5">
+                  <MapPin size={13} className="text-[#d4a017]" />
                   <span>6701 Rockfish Gap Tpk, Crozet, VA</span>
                 </div>
                 <a
                   href="https://greenwoodva.shop"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#d4a017] text-sm hover:text-[#faf6ed] transition-colors flex items-center gap-1.5"
+                  className="text-[#d4a017]/90 text-sm hover:text-[#faf6ed] transition-colors flex items-center gap-1.5"
                 >
-                  Order online at greenwoodva.shop <ExternalLink size={12} />
+                  Order online at greenwoodva.shop <ExternalLink size={11} />
                 </a>
               </div>
             </div>
@@ -232,39 +233,39 @@ function FilterBar({ active, onChange }) {
 
 function SandwichCard({ s, onAdd }) {
   return (
-    <div className="group border-b border-[#1f3a2b]/15 py-7 first:pt-0">
-      <div className="flex gap-5">
+    <div className="group border-b border-[#1f3a2b]/8 py-6 sm:py-8 first:pt-0">
+      <div className="flex gap-4 sm:gap-5">
         {s.img && (
-          <div className="shrink-0 hidden sm:block">
+          <div className="shrink-0">
             <img
               src={s.img}
               alt={s.name}
-              className="w-24 h-24 md:w-28 md:h-28 rounded-xl object-cover border border-[#1f3a2b]/10"
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-lg sm:rounded-xl object-cover border border-[#1f3a2b]/8"
               loading="lazy"
             />
           </div>
         )}
         <div className="flex-1 min-w-0">
-          <div className="flex items-baseline justify-between gap-4 mb-2">
-            <div className="flex items-baseline gap-3">
-              <h3 className="font-serif text-[#1f3a2b] text-2xl md:text-3xl tracking-tight">
+          <div className="flex items-baseline justify-between gap-3 mb-1.5">
+            <div className="flex items-baseline gap-2 sm:gap-3 min-w-0">
+              <h3 className="font-serif text-[#1f3a2b] text-xl sm:text-2xl md:text-[1.7rem] tracking-tight truncate">
                 {s.name}
               </h3>
               {s.veg && (
-                <span className="text-[9px] tracking-[0.15em] uppercase text-[#d4a017] border border-[#d4a017]/50 px-1.5 py-0.5 rounded">
+                <span className="text-[8px] sm:text-[9px] tracking-[0.12em] uppercase text-[#d4a017] border border-[#d4a017]/40 px-1.5 py-0.5 rounded shrink-0">
                   veg
                 </span>
               )}
             </div>
-            <div className="flex-1 border-b border-dotted border-[#1f3a2b]/25 mb-1.5 hidden sm:block" />
-            <div className="font-serif text-[#1f3a2b] text-xl">{fmt(s.price)}</div>
+            <div className="hidden sm:block flex-1 border-b border-dotted border-[#1f3a2b]/15 mb-1.5" />
+            <div className="font-serif text-[#1f3a2b]/80 text-base sm:text-lg shrink-0">{fmt(s.price)}</div>
           </div>
-          <p className="font-serif italic text-[#1f3a2b]/70 text-base leading-snug max-w-xl mb-4">
+          <p className="font-serif italic text-[#1f3a2b]/55 text-[13px] sm:text-[15px] leading-snug max-w-xl mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-none">
             {s.desc}
           </p>
           <button
             onClick={() => onAdd(s)}
-            className="text-xs tracking-[0.15em] uppercase text-[#1f3a2b] border-b border-[#1f3a2b] pb-0.5 hover:text-[#d4a017] hover:border-[#d4a017] transition-colors"
+            className="text-[10px] sm:text-xs tracking-[0.15em] uppercase text-[#1f3a2b]/70 border-b border-[#1f3a2b]/40 pb-0.5 hover:text-[#d4a017] hover:border-[#d4a017] transition-colors"
           >
             Add to order
           </button>
@@ -438,8 +439,8 @@ function CartDrawer({ open, items, onClose, onRemove }) {
 
 function Provisions() {
   return (
-    <section id="provisions" className="border-t border-[#1f3a2b]/10 bg-[#f4efe3]">
-      <div className="max-w-6xl mx-auto px-5 py-20 md:py-28">
+    <section id="provisions" className="border-t border-[#1f3a2b]/8 bg-[#f4efe3]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-28">
         <div className="text-[10px] tracking-[0.3em] uppercase text-[#1f3a2b]/60 mb-4">More than a sandwich shop</div>
         <h2 className="font-serif text-[#1f3a2b] text-4xl md:text-5xl mb-4 leading-tight">
           A country provisions store.
@@ -521,7 +522,7 @@ function Provisions() {
 
 function Story() {
   return (
-    <section id="story" className="border-t border-[#1f3a2b]/10 bg-[#1f3a2b] text-[#faf6ed]">
+    <section id="story" className="border-t border-[#1f3a2b]/8 bg-[#1f3a2b] text-[#faf6ed]">
       {/* Interior photo banner */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <img
@@ -532,7 +533,7 @@ function Story() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1f3a2b]/30 to-[#1f3a2b]" />
       </div>
-      <div className="max-w-6xl mx-auto px-5 py-20 md:py-28 -mt-20 relative z-10 grid md:grid-cols-12 gap-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-28 -mt-16 sm:-mt-20 relative z-10 grid md:grid-cols-12 gap-8 md:gap-12">
         <div className="md:col-span-4">
           <div className="text-[10px] tracking-[0.3em] uppercase text-[#d4a017] mb-4">Our Story</div>
           <h2 className="font-serif text-4xl md:text-5xl leading-tight">A grocery, a deli, an institution.</h2>
@@ -595,74 +596,49 @@ const REVIEWS = [
 
 function Reviews() {
   return (
-    <section className="border-t border-[#1f3a2b]/10 bg-[#f4efe3]">
-      <div className="max-w-6xl mx-auto px-5 py-20 md:py-28">
-        <div className="flex items-baseline justify-between mb-4">
+    <section className="border-t border-[#1f3a2b]/8 bg-[#f4efe3]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-28">
+        <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4 gap-3">
           <div>
-            <div className="text-[10px] tracking-[0.3em] uppercase text-[#1f3a2b]/60 mb-4">What people say</div>
-            <h2 className="font-serif text-[#1f3a2b] text-4xl md:text-5xl leading-tight">
+            <div className="text-[10px] tracking-[0.35em] uppercase text-[#1f3a2b]/50 mb-4">What people say</div>
+            <h2 className="font-serif text-[#1f3a2b] text-3xl sm:text-4xl md:text-5xl leading-tight">
               Worth the drive.
             </h2>
           </div>
-          <div className="hidden md:flex items-center gap-3">
-            <div className="flex items-center gap-1">
+          <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-0.5">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={16} className="text-[#d4a017] fill-[#d4a017]" />
+                <Star key={i} size={14} className="text-[#d4a017] fill-[#d4a017]" />
               ))}
             </div>
-            <span className="text-sm text-[#1f3a2b]/60">
+            <span className="text-xs sm:text-sm text-[#1f3a2b]/50">
               4.5 on Google &middot; 352 reviews
             </span>
           </div>
         </div>
-        <p className="font-serif italic text-[#1f3a2b]/60 text-lg mb-14 max-w-xl">
+        <p className="font-serif italic text-[#1f3a2b]/50 text-base sm:text-lg mb-10 sm:mb-14 max-w-xl">
           From day-trippers on Route 250 to locals who've been coming since '99.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {REVIEWS.slice(0, 3).map((r, i) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {REVIEWS.map((r, i) => (
             <div
               key={i}
-              className="bg-[#faf6ed] rounded-2xl p-7 border border-[#1f3a2b]/10 flex flex-col justify-between"
+              className="bg-[#faf6ed] rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-[#1f3a2b]/8 flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center gap-1 mb-4">
+                <div className="flex items-center gap-0.5 mb-3">
                   {[...Array(r.rating)].map((_, j) => (
-                    <Star key={j} size={13} className="text-[#d4a017] fill-[#d4a017]" />
+                    <Star key={j} size={12} className="text-[#d4a017] fill-[#d4a017]" />
                   ))}
                 </div>
-                <p className="font-serif italic text-[#1f3a2b]/80 text-[15px] leading-relaxed">
-                  "{r.text}"
+                <p className="font-serif italic text-[#1f3a2b]/70 text-[14px] sm:text-[15px] leading-relaxed">
+                  &ldquo;{r.text}&rdquo;
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-[#1f3a2b]/10 flex items-center justify-between">
-                <span className="text-sm text-[#1f3a2b]/70 font-medium">{r.author}</span>
-                <span className="text-[10px] tracking-[0.15em] uppercase text-[#1f3a2b]/40">{r.source}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Second row - 2 reviews */}
-        <div className="grid md:grid-cols-2 gap-6 mt-6">
-          {REVIEWS.slice(3).map((r, i) => (
-            <div
-              key={i}
-              className="bg-[#faf6ed] rounded-2xl p-7 border border-[#1f3a2b]/10 flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(r.rating)].map((_, j) => (
-                    <Star key={j} size={13} className="text-[#d4a017] fill-[#d4a017]" />
-                  ))}
-                </div>
-                <p className="font-serif italic text-[#1f3a2b]/80 text-[15px] leading-relaxed">
-                  "{r.text}"
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#1f3a2b]/10 flex items-center justify-between">
-                <span className="text-sm text-[#1f3a2b]/70 font-medium">{r.author}</span>
-                <span className="text-[10px] tracking-[0.15em] uppercase text-[#1f3a2b]/40">{r.source}</span>
+              <div className="mt-5 pt-3.5 border-t border-[#1f3a2b]/8 flex items-center justify-between">
+                <span className="text-[13px] text-[#1f3a2b]/60">{r.author}</span>
+                <span className="text-[9px] tracking-[0.15em] uppercase text-[#1f3a2b]/35">{r.source}</span>
               </div>
             </div>
           ))}
@@ -685,8 +661,8 @@ function Reviews() {
 
 function Visit() {
   return (
-    <section id="visit" className="border-t border-[#1f3a2b]/10">
-      <div className="max-w-6xl mx-auto px-5 py-20 md:py-28">
+    <section id="visit" className="border-t border-[#1f3a2b]/8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-28">
         <div className="text-[10px] tracking-[0.3em] uppercase text-[#1f3a2b]/60 mb-4">Plan your visit</div>
         <h2 className="font-serif text-[#1f3a2b] text-4xl md:text-5xl mb-12">Find us.</h2>
 
@@ -790,8 +766,8 @@ function Visit() {
 
 function Footer() {
   return (
-    <footer className="border-t border-[#1f3a2b]/10 bg-[#1f3a2b] text-[#faf6ed]">
-      <div className="max-w-6xl mx-auto px-5 py-12">
+    <footer className="border-t border-[#1f3a2b]/8 bg-[#1f3a2b] text-[#faf6ed]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid sm:grid-cols-3 gap-8 mb-10">
           <div>
             <div className="mb-4">
@@ -872,8 +848,8 @@ export default function GreenwoodSite() {
       <Header cartCount={cart.length} onCartClick={() => setCartOpen(true)} />
       <Hero />
 
-      <section id="menu" className="border-t border-[#1f3a2b]/10">
-        <div className="max-w-6xl mx-auto px-5 py-20 md:py-28">
+      <section id="menu" className="border-t border-[#1f3a2b]/8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-28">
           <div className="flex items-baseline justify-between mb-3">
             <div className="text-[10px] tracking-[0.3em] uppercase text-[#1f3a2b]/60">Made to order</div>
             <div className="font-serif italic text-[#1f3a2b]/40 text-sm hidden md:block">
