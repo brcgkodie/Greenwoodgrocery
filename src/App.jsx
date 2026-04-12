@@ -136,14 +136,14 @@ function Hero() {
               Keep it local &middot; since 1999
             </div>
             <h1 className="font-serif text-[#1f3a2b] text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight">
-              Sandwiches,<br />
-              <span className="italic text-[#d4a017]">made to order,</span><br />
+              Local provisions,<br />
+              <span className="italic text-[#d4a017]">handpicked goods,</span><br />
               on Route 250.
             </h1>
             <p className="mt-8 max-w-xl text-[#1f3a2b]/75 text-base md:text-lg leading-relaxed">
-              A gourmet grocery on the road between Charlottesville and the Blue Ridge.
-              Heritage sandwiches, hundreds of craft beers and wines, locally sourced
-              provisions, fresh coffee, and pastries baked daily.
+              A country grocery built on the foundation of a roadside fruit stand.
+              Locally sourced provisions, made-to-order sandwiches, hundreds of craft
+              beers and wines, fresh coffee, and pastries &mdash; since 1999.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
@@ -175,14 +175,19 @@ function Hero() {
             </div>
           </div>
 
-          {/* Storefront image */}
+          {/* Storefront video */}
           <div className="md:col-span-5 relative flex items-center justify-center">
             <div className="rounded-2xl overflow-hidden shadow-2xl shadow-[#1f3a2b]/20 w-full relative">
-              <img
-                src={IMAGES.hero}
-                alt="Greenwood Gourmet Grocery storefront on Route 250 in Crozet, Virginia"
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster={IMAGES.hero}
                 className="w-full h-72 md:h-96 object-cover"
-              />
+              >
+                <source src="/images/hero-video.mp4" type="video/mp4" />
+              </video>
               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#1f3a2b]/90 to-transparent p-6 pt-16">
                 <div className="flex items-center gap-2 text-[#faf6ed]/90 text-sm mb-2">
                   <MapPin size={14} className="text-[#d4a017]" />
@@ -557,34 +562,34 @@ function Story() {
 
 const REVIEWS = [
   {
-    text: "I am a caprese sandwich connoisseur and their Landrance rocked my world. It's one of the top five sandwiches I've ever had. I dream about it now that I'm back in NC.",
-    author: "Mark S.",
-    source: "TripAdvisor",
+    text: "What a gem, fantastic sandwiches, they are all so good. The perfect bite to bring along for a vineyard day. High quality food items line the shelves throughout the store and some of the region's best wines.",
+    author: "Kyle",
+    source: "Google",
     rating: 5,
   },
   {
-    text: "We make a point to stop by whenever we are in the Charlottesville area. The sandwiches are absolutely amazing! Fresh bread, delicious ingredients and so very tasty!",
-    author: "Visitor",
-    source: "TripAdvisor",
+    text: "My husband and I stop by here anytime we are in the area! Best sandwiches ever and we love stopping by to grab snacks and other local goodies for the road!",
+    author: "Jessica T.",
+    source: "Google",
     rating: 5,
   },
   {
-    text: "I love the Blue Slate sandwich. It's a 10/10, great size and flavor. Prices are steep but the quality is great and everything is so fresh.",
+    text: "The area's best kept secret. You can get amazing pots for your plants, local seasonal produce and bread, gifts for the cooking hobbyist in your life, and much more.",
+    author: "Reggie L.",
+    source: "Google",
+    rating: 5,
+  },
+  {
+    text: "The Wessex was one of the best sandwiches I've ever had! Highly recommend.",
+    author: "Ally W.",
+    source: "Google",
+    rating: 5,
+  },
+  {
+    text: "I love the Blue Slate sandwich. It's a 10/10, great size and flavor. The quality is great and everything is so fresh. Tuna salad is great even for non-fans.",
     author: "Tatiana A.",
-    source: "Yelp",
-    rating: 5,
-  },
-  {
-    text: "A wonderful place to find a bit of everything gourmet! Their sandwiches are delicious, always fresh! Excellent selection of wine and beer.",
-    author: "Visitor",
-    source: "Apple Maps",
-    rating: 5,
-  },
-  {
-    text: "Amazing Italian sandwiches, made to order. Great variety of beverages, wine, sweet treats and even little gifts. Beautiful setting to top off the experience.",
-    author: "Visitor",
-    source: "TripAdvisor",
-    rating: 5,
+    source: "Google",
+    rating: 4,
   },
 ];
 
@@ -606,7 +611,7 @@ function Reviews() {
               ))}
             </div>
             <span className="text-sm text-[#1f3a2b]/60">
-              4.0 on TripAdvisor &middot; 4.2 on Yelp &middot; 114+ reviews
+              4.5 on Google &middot; 352 reviews
             </span>
           </div>
         </div>
@@ -665,20 +670,12 @@ function Reviews() {
 
         <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-[#1f3a2b]/50">
           <a
-            href="https://www.tripadvisor.com/Restaurant_Review-g57648-d2447173-Reviews-Greenwood_Gourmet_Grocery-Crozet_Virginia.html"
+            href="https://maps.google.com/?q=Greenwood+Gourmet+Grocery,+6701+Rockfish+Gap+Turnpike,+Crozet,+VA+22932"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[#d4a017] transition-colors flex items-center gap-1.5"
           >
-            Read on TripAdvisor <ExternalLink size={12} />
-          </a>
-          <a
-            href="https://www.yelp.com/biz/greenwood-gourmet-grocery-crozet"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#d4a017] transition-colors flex items-center gap-1.5"
-          >
-            Read on Yelp <ExternalLink size={12} />
+            See all reviews on Google <ExternalLink size={12} />
           </a>
         </div>
       </div>
