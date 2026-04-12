@@ -4,6 +4,8 @@ import { ShoppingBag, X, MapPin, Clock, Phone, Instagram, ChevronDown, Check, Wi
 // ----- IMAGES -----
 const IMAGES = {
   logo: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1408315939180-OZKE1CUAPS3001CTTPB6/green.png",
+  hero: "/images/hero-storefront.jpg",
+  storyInterior: "/images/story-interior.jpg",
   produce: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1507348004603-QN11BZG7PEMTH1J53IOF/IMG_2905.jpg?format=1500w",
   wine: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1507048394026-SDG6RIPF153VIDJ5V0WL/IMG_5643.JPG?format=1500w",
   pie: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1503849951972-JC7CAV312NVVN5FJV2WG/IMG_0983.jpg?format=1500w",
@@ -173,34 +175,24 @@ function Hero() {
             </div>
           </div>
 
-          {/* Logo & info card */}
+          {/* Storefront image */}
           <div className="md:col-span-5 relative flex items-center justify-center">
-            <div className="bg-[#1f3a2b] rounded-2xl p-10 md:p-12 text-center shadow-2xl shadow-[#1f3a2b]/20 w-full">
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-[#1f3a2b]/20 w-full relative">
               <img
-                src={IMAGES.logo}
-                alt="Greenwood Gourmet Grocery"
-                className="w-40 md:w-48 mx-auto mb-8 brightness-0 invert opacity-90"
+                src={IMAGES.hero}
+                alt="Greenwood Gourmet Grocery storefront on Route 250 in Crozet, Virginia"
+                className="w-full h-72 md:h-96 object-cover"
               />
-              <div className="space-y-4 text-[#faf6ed]/80 text-sm">
-                <div className="flex items-center justify-center gap-2">
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#1f3a2b]/90 to-transparent p-6 pt-16">
+                <div className="flex items-center gap-2 text-[#faf6ed]/90 text-sm mb-2">
                   <MapPin size={14} className="text-[#d4a017]" />
                   <span>6701 Rockfish Gap Tpk, Crozet, VA</span>
                 </div>
-                <div className="flex items-center justify-center gap-2">
-                  <Clock size={14} className="text-[#d4a017]" />
-                  <span>Open today &middot; Mon-Fri 9a-7p</span>
-                </div>
-                <div className="flex items-center justify-center gap-2">
-                  <Phone size={14} className="text-[#d4a017]" />
-                  <a href="tel:5404566431" className="hover:text-[#d4a017] transition-colors">(540) 456-6431</a>
-                </div>
-              </div>
-              <div className="mt-6 pt-6 border-t border-[#faf6ed]/15">
                 <a
                   href="https://greenwoodva.shop"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#d4a017] text-sm hover:text-[#faf6ed] transition-colors flex items-center justify-center gap-1.5"
+                  className="text-[#d4a017] text-sm hover:text-[#faf6ed] transition-colors flex items-center gap-1.5"
                 >
                   Order online at greenwoodva.shop <ExternalLink size={12} />
                 </a>
@@ -525,7 +517,17 @@ function Provisions() {
 function Story() {
   return (
     <section id="story" className="border-t border-[#1f3a2b]/10 bg-[#1f3a2b] text-[#faf6ed]">
-      <div className="max-w-6xl mx-auto px-5 py-20 md:py-28 grid md:grid-cols-12 gap-12">
+      {/* Interior photo banner */}
+      <div className="relative h-64 md:h-80 overflow-hidden">
+        <img
+          src={IMAGES.storyInterior}
+          alt="Inside Greenwood Gourmet Grocery - shelves of artisan goods, craft beer, wine, and local produce"
+          className="w-full h-full object-cover opacity-60"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1f3a2b]/30 to-[#1f3a2b]" />
+      </div>
+      <div className="max-w-6xl mx-auto px-5 py-20 md:py-28 -mt-20 relative z-10 grid md:grid-cols-12 gap-12">
         <div className="md:col-span-4">
           <div className="text-[10px] tracking-[0.3em] uppercase text-[#d4a017] mb-4">Our Story</div>
           <h2 className="font-serif text-4xl md:text-5xl leading-tight">A grocery, a deli, an institution.</h2>
