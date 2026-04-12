@@ -4,32 +4,32 @@ import { ShoppingBag, X, MapPin, Clock, Phone, Instagram, ChevronDown, Check, Wi
 // ----- IMAGES -----
 const IMAGES = {
   logo: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1408315939180-OZKE1CUAPS3001CTTPB6/green.png",
-  storefront: "https://static1.squarespace.com/static/53ef7f3be4b0880c7d4fbb28/t/53f13223e4b0b335a2102046/1726688718701/",
+  produce: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1507348004603-QN11BZG7PEMTH1J53IOF/IMG_2905.jpg?format=1500w",
+  wine: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1507048394026-SDG6RIPF153VIDJ5V0WL/IMG_5643.JPG?format=1500w",
+  pie: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1503849951972-JC7CAV312NVVN5FJV2WG/IMG_0983.jpg?format=1500w",
   sandwichMenu: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1726688401523-R6ZCPWVFRDWN8WT6ALCM/Sandwiches2024.png",
   boxLunch: "https://images.squarespace-cdn.com/content/v1/53ef7f3be4b0880c7d4fbb28/1726688396180-SI033NUUYPNOKSD76SPL/BoxLunch2024.png",
 };
 
-// ----- DATA -----
+// ----- DATA (scraped from greenwoodva.shop) -----
 const SANDWICHES = [
-  { id: "blue-slate", name: "Blue Slate", price: 13.79, category: "beef", desc: "Roast beef, Bayley Hazen blue, arugula, red onion jam, horseradish aioli", veg: false },
-  { id: "italian", name: "Italian", price: 13.79, category: "pork", desc: "Soppressata, capicola, mortadella, provolone, pepperoncini, oregano vinaigrette", veg: false },
-  { id: "landrance", name: "Landrance", price: 13.79, category: "pork", desc: "Country ham, aged cheddar, fig jam, whole grain mustard, butter lettuce", veg: false },
-  { id: "wessex", name: "Wessex", price: 13.99, category: "pork", desc: "Slow-roasted porchetta, broccoli rabe, sharp provolone, lemon agrumato", veg: false },
-  { id: "devon", name: "Devon", price: 12.99, category: "chicken", desc: "Roasted chicken, brie, apricot preserves, watercress, tarragon mayo", veg: false },
-  { id: "araucana", name: "Araucana", price: 10.49, category: "veg", desc: "Farm egg salad, dill, chives, butter lettuce, soft sourdough", veg: true },
-  { id: "brahma", name: "Brahma", price: 12.99, category: "chicken", desc: "Curried chicken salad, golden raisins, almonds, baby greens", veg: false },
-  { id: "chester", name: "Chester", price: 12.79, category: "beef", desc: "Smoked brisket, smoked gouda, pickled red cabbage, dijonnaise", veg: false },
-  { id: "melrose", name: "Melrose", price: 11.79, category: "veg", desc: "Roasted seasonal vegetables, herbed chevre, basil pesto, ciabatta", veg: true },
-  { id: "galloway", name: "Galloway", price: 12.79, category: "beef", desc: "Shaved roast beef, caramelized onion, gruyere, horseradish cream", veg: false },
-  { id: "riviera", name: "Riviera", price: 14.79, category: "fish", desc: "Olive oil tuna, nicoise olives, haricots verts, soft egg, lemon", veg: false },
-  { id: "berkshire", name: "Berkshire", price: 14.99, category: "pork", desc: "Heritage bacon, fried green tomato, butter lettuce, smoked aioli", veg: false },
-  { id: "cuban", name: "Cuban", price: 13.79, category: "pork", desc: "Mojo pork, ham, swiss, pickles, yellow mustard, pressed", veg: false },
-  { id: "beauregard", name: "Beauregard", price: 11.99, category: "veg", desc: "Grilled sweet potato, black bean spread, avocado, lime crema", veg: true },
-  { id: "vittoria", name: "Vittoria", price: 11.79, category: "veg", desc: "Fresh mozzarella, heirloom tomato, basil, aged balsamic, sea salt", veg: true },
-  { id: "hampshire", name: "Hampshire", price: 13.99, category: "pork", desc: "Black forest ham, gruyere, cornichons, dijon butter, baguette", veg: false },
-  { id: "kids-turkey", name: "Kid's Turkey", price: 6.50, category: "kids", desc: "Sliced turkey, mild cheddar, soft white bread", veg: false },
-  { id: "kids-pbj", name: "Kid's PB&J", price: 6.00, category: "kids", desc: "Peanut butter, strawberry preserves, soft white bread", veg: true },
-  { id: "kids-ham", name: "Kid's Ham", price: 7.50, category: "kids", desc: "Sliced ham, mild cheddar, soft white bread", veg: false },
+  { id: "blue-slate", name: "Blue Slate", price: 13.79, category: "turkey", desc: "Smoked all-natural turkey breast with Havarti cheese, lettuce, tomato, and ancho lime mayo on country bread", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/fullsizeoutput_1aa6.jpg?v=1589061065&width=800" },
+  { id: "italian", name: "Italian", price: 13.79, category: "pork", desc: "Thinly sliced sopressata and Genoa salami with provolone, diced peppers, lettuce and house-made Italian vinaigrette on baguette", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/image_549ef37a-e99c-48b7-af1c-988dd3e84cf5.jpg?v=1599769940&width=800" },
+  { id: "landrance", name: "Landrance", price: 13.79, category: "pork", desc: "Prosciutto, roasted tomatoes, arugula and fresh mozzarella on baguette. Also available as a vegetarian sandwich", veg: false },
+  { id: "wessex", name: "Wessex", price: 13.99, category: "pork", desc: "Thinly sliced Edwards' Virginia ham with brie and house-made apple chutney on ciabatta bread", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/3792F63A-FA88-463E-8809-10D8D802D8CD.jpg?v=1599770094&width=800" },
+  { id: "devon", name: "Devon", price: 12.99, category: "beef", desc: "All-natural roast beef with horseradish-chive spread and arugula on focaccia", veg: false },
+  { id: "araucana", name: "Araucana", price: 10.49, category: "veg", desc: "House-made farm-fresh egg salad with bacon and local tomato on country bread. Also available without bacon", veg: true, img: "https://greenwoodva.shop/cdn/shop/products/fullsizeoutput_1aa4.jpg?v=1589061134&width=800" },
+  { id: "brahma", name: "Brahma", price: 12.99, category: "chicken", desc: "House-made curried chicken salad with Farmstead Ferments kraut, romaine and chutney raita on whole wheat bread. Contains almonds", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/image_22a74dba-9534-4bf4-8020-134c876df6ef.jpg?v=1589732241&width=800" },
+  { id: "chester", name: "Chester", price: 12.79, category: "pork", desc: "All-natural black forest ham with provolone, spicy-sweet mustard and roasted peppers on focaccia, grilled", veg: false },
+  { id: "melrose", name: "Melrose", price: 11.79, category: "veg", desc: "Roasted portobello mushrooms and red onions with house-made pimento cheese and arugula on country bread, grilled", veg: true },
+  { id: "galloway", name: "Galloway", price: 12.79, category: "beef", desc: "Pastrami and Swiss with coarse mustard and coleslaw on rye bread, grilled", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/image_8e6c2a63-ae5a-4752-99bf-8ebabbaf11f4.jpg?v=1616601292&width=800" },
+  { id: "riviera", name: "Riviera", price: 14.79, category: "fish", desc: "House-made Italian tuna salad with capers, roasted tomatoes and olive oil, with mixed greens on country bread", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/fullsizeoutput_1aa5.jpg?v=1589061191&width=800" },
+  { id: "berkshire", name: "Berkshire", price: 14.99, category: "pork", desc: "Roasted Double H Farm pork with pickled fennel, romaine and charred onion-miso mayo on ciabatta", veg: false },
+  { id: "cuban", name: "Cuban", price: 13.79, category: "pork", desc: "Mortadella and Swiss with cornichons, hot peppers, pickled onions and roasted garlic mayo on a brioche bun", veg: false },
+  { id: "vittoria", name: "Vittoria", price: 11.79, category: "veg", desc: "House-made eggplant caponata and hummus with arugula on focaccia. Contains pine nuts", veg: true },
+  { id: "hampshire", name: "Hampshire", price: 13.99, category: "pork", desc: "Pulled Double H Farm pork barbecue with coleslaw on brioche bun", veg: false },
+  { id: "kids-turkey", name: "Kid's Turkey", price: 6.50, category: "kids", desc: "Smoked all-natural turkey breast with Havarti cheese and mayonnaise on wheat", veg: false },
+  { id: "kids-ham", name: "Kid's Ham", price: 7.50, category: "kids", desc: "All-natural black forest ham with provolone and mayonnaise on wheat", veg: false },
 ];
 
 const BREADS = ["Sourdough", "Ciabatta", "Baguette", "Whole Wheat", "Gluten-Free (+$2)"];
@@ -45,6 +45,7 @@ const MODS = [
 const FILTERS = [
   { id: "all", label: "Everything" },
   { id: "veg", label: "Vegetarian" },
+  { id: "turkey", label: "Turkey" },
   { id: "chicken", label: "Chicken" },
   { id: "beef", label: "Beef" },
   { id: "pork", label: "Pork" },
@@ -235,29 +236,43 @@ function FilterBar({ active, onChange }) {
 function SandwichCard({ s, onAdd }) {
   return (
     <div className="group border-b border-[#1f3a2b]/15 py-7 first:pt-0">
-      <div className="flex items-baseline justify-between gap-4 mb-2">
-        <div className="flex items-baseline gap-3">
-          <h3 className="font-serif text-[#1f3a2b] text-2xl md:text-3xl tracking-tight">
-            {s.name}
-          </h3>
-          {s.veg && (
-            <span className="text-[9px] tracking-[0.15em] uppercase text-[#d4a017] border border-[#d4a017]/50 px-1.5 py-0.5 rounded">
-              veg
-            </span>
-          )}
+      <div className="flex gap-5">
+        {s.img && (
+          <div className="shrink-0 hidden sm:block">
+            <img
+              src={s.img}
+              alt={s.name}
+              className="w-24 h-24 md:w-28 md:h-28 rounded-xl object-cover border border-[#1f3a2b]/10"
+              loading="lazy"
+            />
+          </div>
+        )}
+        <div className="flex-1 min-w-0">
+          <div className="flex items-baseline justify-between gap-4 mb-2">
+            <div className="flex items-baseline gap-3">
+              <h3 className="font-serif text-[#1f3a2b] text-2xl md:text-3xl tracking-tight">
+                {s.name}
+              </h3>
+              {s.veg && (
+                <span className="text-[9px] tracking-[0.15em] uppercase text-[#d4a017] border border-[#d4a017]/50 px-1.5 py-0.5 rounded">
+                  veg
+                </span>
+              )}
+            </div>
+            <div className="flex-1 border-b border-dotted border-[#1f3a2b]/25 mb-1.5 hidden sm:block" />
+            <div className="font-serif text-[#1f3a2b] text-xl">{fmt(s.price)}</div>
+          </div>
+          <p className="font-serif italic text-[#1f3a2b]/70 text-base leading-snug max-w-xl mb-4">
+            {s.desc}
+          </p>
+          <button
+            onClick={() => onAdd(s)}
+            className="text-xs tracking-[0.15em] uppercase text-[#1f3a2b] border-b border-[#1f3a2b] pb-0.5 hover:text-[#d4a017] hover:border-[#d4a017] transition-colors"
+          >
+            Add to order
+          </button>
         </div>
-        <div className="flex-1 border-b border-dotted border-[#1f3a2b]/25 mb-1.5 hidden sm:block" />
-        <div className="font-serif text-[#1f3a2b] text-xl">{fmt(s.price)}</div>
       </div>
-      <p className="font-serif italic text-[#1f3a2b]/70 text-base leading-snug max-w-xl mb-4">
-        {s.desc}
-      </p>
-      <button
-        onClick={() => onAdd(s)}
-        className="text-xs tracking-[0.15em] uppercase text-[#1f3a2b] border-b border-[#1f3a2b] pb-0.5 hover:text-[#d4a017] hover:border-[#d4a017] transition-colors"
-      >
-        Add to order
-      </button>
     </div>
   );
 }
@@ -425,29 +440,6 @@ function CartDrawer({ open, items, onClose, onRemove }) {
 }
 
 function Provisions() {
-  const items = [
-    {
-      icon: <Wine size={24} />,
-      title: "Beer & Wine",
-      desc: "Hundreds of carefully selected craft beers and wines from local vineyards, regional breweries, and trusted producers worldwide. We're proud to carry some of the finest libations Virginia has to offer.",
-    },
-    {
-      icon: <Coffee size={24} />,
-      title: "Coffee & Pastries",
-      desc: "Fresh-brewed coffee and pastries baked daily. Stop in on your morning commute or grab an afternoon pick-me-up on your way through.",
-    },
-    {
-      icon: <Leaf size={24} />,
-      title: "Local Produce & Specialty Goods",
-      desc: "Fresh produce from Albemarle County farms, hand-crafted goods from regional artisans, specialty cheeses, fresh dairy, and a carefully curated selection of pantry staples from trusted sources worldwide.",
-    },
-    {
-      icon: <ShoppingCart size={24} />,
-      title: "Box Lunches & Catering",
-      desc: "Planning a gathering, office lunch, or picnic at the nearby wineries? We prepare box lunches and platters. Call ahead to place your order.",
-    },
-  ];
-
   return (
     <section id="provisions" className="border-t border-[#1f3a2b]/10 bg-[#f4efe3]">
       <div className="max-w-6xl mx-auto px-5 py-20 md:py-28">
@@ -460,20 +452,58 @@ function Provisions() {
           has earned its place.
         </p>
 
+        {/* Photo grid */}
+        <div className="grid sm:grid-cols-3 gap-4 mb-14">
+          <div className="rounded-2xl overflow-hidden border border-[#1f3a2b]/10 shadow-lg">
+            <img src={IMAGES.produce} alt="Fresh local produce at Greenwood Grocery" className="w-full h-52 md:h-64 object-cover" loading="lazy" />
+            <div className="bg-[#faf6ed] px-5 py-4">
+              <div className="flex items-center gap-2 text-[#d4a017] mb-1"><Leaf size={15} /></div>
+              <h3 className="font-serif text-[#1f3a2b] text-lg">Local Produce</h3>
+              <p className="text-[#1f3a2b]/60 text-xs mt-1">Fresh from Albemarle County farms</p>
+            </div>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-[#1f3a2b]/10 shadow-lg">
+            <img src={IMAGES.wine} alt="Virginia wine selection at Greenwood Grocery" className="w-full h-52 md:h-64 object-cover" loading="lazy" />
+            <div className="bg-[#faf6ed] px-5 py-4">
+              <div className="flex items-center gap-2 text-[#d4a017] mb-1"><Wine size={15} /></div>
+              <h3 className="font-serif text-[#1f3a2b] text-lg">Beer & Wine</h3>
+              <p className="text-[#1f3a2b]/60 text-xs mt-1">Hundreds of craft selections</p>
+            </div>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-[#1f3a2b]/10 shadow-lg">
+            <img src={IMAGES.pie} alt="House-made baked goods at Greenwood Grocery" className="w-full h-52 md:h-64 object-cover" loading="lazy" />
+            <div className="bg-[#faf6ed] px-5 py-4">
+              <div className="flex items-center gap-2 text-[#d4a017] mb-1"><Coffee size={15} /></div>
+              <h3 className="font-serif text-[#1f3a2b] text-lg">Coffee & Pastries</h3>
+              <p className="text-[#1f3a2b]/60 text-xs mt-1">Fresh-brewed daily</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Additional info */}
         <div className="grid sm:grid-cols-2 gap-8 md:gap-12">
-          {items.map((item) => (
-            <div key={item.title} className="group">
-              <div className="flex items-start gap-4">
-                <div className="shrink-0 w-12 h-12 rounded-xl bg-[#1f3a2b]/10 flex items-center justify-center text-[#1f3a2b]/70 group-hover:bg-[#1f3a2b] group-hover:text-[#faf6ed] transition-all duration-300">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="font-serif text-[#1f3a2b] text-xl mb-2">{item.title}</h3>
-                  <p className="text-[#1f3a2b]/70 text-sm leading-relaxed">{item.desc}</p>
-                </div>
+          <div className="group">
+            <div className="flex items-start gap-4">
+              <div className="shrink-0 w-12 h-12 rounded-xl bg-[#1f3a2b]/10 flex items-center justify-center text-[#1f3a2b]/70 group-hover:bg-[#1f3a2b] group-hover:text-[#faf6ed] transition-all duration-300">
+                <Leaf size={24} />
+              </div>
+              <div>
+                <h3 className="font-serif text-[#1f3a2b] text-xl mb-2">Specialty Goods</h3>
+                <p className="text-[#1f3a2b]/70 text-sm leading-relaxed">Hand-crafted goods from regional artisans, specialty cheeses, fresh dairy, and a carefully curated selection of pantry staples from trusted sources worldwide.</p>
               </div>
             </div>
-          ))}
+          </div>
+          <div className="group">
+            <div className="flex items-start gap-4">
+              <div className="shrink-0 w-12 h-12 rounded-xl bg-[#1f3a2b]/10 flex items-center justify-center text-[#1f3a2b]/70 group-hover:bg-[#1f3a2b] group-hover:text-[#faf6ed] transition-all duration-300">
+                <ShoppingCart size={24} />
+              </div>
+              <div>
+                <h3 className="font-serif text-[#1f3a2b] text-xl mb-2">Box Lunches & Catering</h3>
+                <p className="text-[#1f3a2b]/70 text-sm leading-relaxed">Planning a gathering, office lunch, or picnic at the nearby wineries? We prepare box lunches and platters. Call ahead to place your order.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="mt-14 pt-8 border-t border-[#1f3a2b]/10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
