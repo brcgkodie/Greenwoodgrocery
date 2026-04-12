@@ -172,18 +172,38 @@ function Hero() {
             </div>
           </div>
 
-          {/* Storefront image */}
-          <div className="md:col-span-5 relative">
-            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-[#1f3a2b]/15 border border-[#1f3a2b]/10">
+          {/* Logo & info card */}
+          <div className="md:col-span-5 relative flex items-center justify-center">
+            <div className="bg-[#1f3a2b] rounded-2xl p-10 md:p-12 text-center shadow-2xl shadow-[#1f3a2b]/20 w-full">
               <img
-                src={IMAGES.storefront}
-                alt="Greenwood Gourmet Grocery storefront on Route 250 in Crozet, Virginia"
-                className="w-full h-64 md:h-96 object-cover"
+                src={IMAGES.logo}
+                alt="Greenwood Gourmet Grocery"
+                className="w-40 md:w-48 mx-auto mb-8 brightness-0 invert opacity-90"
               />
-            </div>
-            <div className="absolute -bottom-4 -left-4 bg-[#1f3a2b] text-[#faf6ed] rounded-xl px-5 py-3 shadow-lg hidden md:block">
-              <div className="text-[10px] tracking-[0.2em] uppercase text-[#d4a017] mb-0.5">Crozet, VA</div>
-              <div className="font-serif text-sm">6701 Rockfish Gap Tpk</div>
+              <div className="space-y-4 text-[#faf6ed]/80 text-sm">
+                <div className="flex items-center justify-center gap-2">
+                  <MapPin size={14} className="text-[#d4a017]" />
+                  <span>6701 Rockfish Gap Tpk, Crozet, VA</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <Clock size={14} className="text-[#d4a017]" />
+                  <span>Open today &middot; Mon-Fri 9a-7p</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <Phone size={14} className="text-[#d4a017]" />
+                  <a href="tel:5404566431" className="hover:text-[#d4a017] transition-colors">(540) 456-6431</a>
+                </div>
+              </div>
+              <div className="mt-6 pt-6 border-t border-[#faf6ed]/15">
+                <a
+                  href="https://greenwoodva.shop"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#d4a017] text-sm hover:text-[#faf6ed] transition-colors flex items-center justify-center gap-1.5"
+                >
+                  Order online at greenwoodva.shop <ExternalLink size={12} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -583,19 +603,22 @@ function Visit() {
           </div>
         </div>
 
-        {/* Map embed */}
-        <div className="mt-14 rounded-2xl overflow-hidden border border-[#1f3a2b]/10 h-64 md:h-80">
-          <iframe
-            title="Greenwood Gourmet Grocery location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.5!2d-78.74!3d38.02!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b37f1234567890%3A0x1234567890abcdef!2s6701+Rockfish+Gap+Turnpike%2C+Crozet%2C+VA+22932!5e0!3m2!1sen!2sus!4v1234567890"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
+        {/* Map link */}
+        <a
+          href="https://maps.google.com/?q=Greenwood+Gourmet+Grocery,+6701+Rockfish+Gap+Turnpike,+Crozet,+VA+22932"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-14 block rounded-2xl overflow-hidden border border-[#1f3a2b]/10 h-64 md:h-80 relative group bg-[#1f3a2b]/5 hover:bg-[#1f3a2b]/10 transition-colors"
+        >
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <MapPin size={40} className="text-[#1f3a2b]/30 group-hover:text-[#d4a017] transition-colors mb-3" />
+            <div className="font-serif text-[#1f3a2b] text-xl">6701 Rockfish Gap Turnpike</div>
+            <div className="text-[#1f3a2b]/60 text-sm mt-1">Crozet, VA 22932</div>
+            <div className="mt-4 text-xs tracking-[0.15em] uppercase text-[#1f3a2b]/50 group-hover:text-[#d4a017] transition-colors flex items-center gap-1.5">
+              Open in Google Maps <ExternalLink size={12} />
+            </div>
+          </div>
+        </a>
       </div>
     </section>
   );
