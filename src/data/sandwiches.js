@@ -1,0 +1,21 @@
+const SANDWICHES = [
+  { id: "blue-slate", name: "Blue Slate", price: 13.79, category: "turkey", desc: "Smoked all-natural turkey breast with Havarti cheese, lettuce, tomato, and ancho lime mayo on country bread", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/fullsizeoutput_1aa6.jpg?v=1589061065&width=800" },
+  { id: "italian", name: "Italian", price: 13.79, category: "pork", desc: "Thinly sliced sopressata and Genoa salami with provolone, diced peppers, lettuce and house-made Italian vinaigrette on baguette", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/image_549ef37a-e99c-48b7-af1c-988dd3e84cf5.jpg?v=1599769940&width=800" },
+  { id: "landrance", name: "Landrance", price: 13.79, category: "pork", desc: "Prosciutto, roasted tomatoes, arugula and fresh mozzarella on baguette. Also available as a vegetarian sandwich", veg: false, img: "/images/sandwiches/landrance.jpg" },
+  { id: "wessex", name: "Wessex", price: 13.99, category: "pork", desc: "Thinly sliced Edwards' Virginia ham with brie and house-made apple chutney on ciabatta bread", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/3792F63A-FA88-463E-8809-10D8D802D8CD.jpg?v=1599770094&width=800" },
+  { id: "devon", name: "Devon", price: 12.99, category: "beef", desc: "All-natural roast beef with horseradish-chive spread and arugula on focaccia", veg: false, img: "/images/sandwiches/devon.jpg" },
+  { id: "araucana", name: "Araucana", price: 10.49, category: "veg", desc: "House-made farm-fresh egg salad with bacon and local tomato on country bread. Also available without bacon", veg: true, img: "https://greenwoodva.shop/cdn/shop/products/fullsizeoutput_1aa4.jpg?v=1589061134&width=800" },
+  { id: "brahma", name: "Brahma", price: 12.99, category: "chicken", desc: "House-made curried chicken salad with Farmstead Ferments kraut, romaine and chutney raita on whole wheat bread. Contains almonds", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/image_22a74dba-9534-4bf4-8020-134c876df6ef.jpg?v=1589732241&width=800" },
+  { id: "chester", name: "Chester", price: 12.79, category: "pork", desc: "All-natural black forest ham with provolone, spicy-sweet mustard and roasted peppers on focaccia, grilled", veg: false, img: "/images/sandwiches/chester.jpg" },
+  { id: "melrose", name: "Melrose", price: 11.79, category: "veg", desc: "Roasted portobello mushrooms and red onions with house-made pimento cheese and arugula on country bread, grilled", veg: true, img: "/images/sandwiches/melrose.jpg" },
+  { id: "galloway", name: "Galloway", price: 12.79, category: "beef", desc: "Pastrami and Swiss with coarse mustard and coleslaw on rye bread, grilled", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/image_8e6c2a63-ae5a-4752-99bf-8ebabbaf11f4.jpg?v=1616601292&width=800" },
+  { id: "riviera", name: "Riviera", price: 14.79, category: "fish", desc: "House-made Italian tuna salad with capers, roasted tomatoes and olive oil, with mixed greens on country bread", veg: false, img: "https://greenwoodva.shop/cdn/shop/products/fullsizeoutput_1aa5.jpg?v=1589061191&width=800" },
+  { id: "berkshire", name: "Berkshire", price: 14.99, category: "pork", desc: "Roasted Double H Farm pork with pickled fennel, romaine and charred onion-miso mayo on ciabatta", veg: false, img: "/images/sandwiches/berkshire.jpg" },
+  { id: "cuban", name: "Cuban", price: 13.79, category: "pork", desc: "Mortadella and Swiss with cornichons, hot peppers, pickled onions and roasted garlic mayo on a brioche bun", veg: false, img: "/images/sandwiches/cuban.jpg" },
+  { id: "vittoria", name: "Vittoria", price: 11.79, category: "veg", desc: "House-made eggplant caponata and hummus with arugula on focaccia. Contains pine nuts", veg: true, img: "/images/sandwiches/vittoria.jpg" },
+  { id: "hampshire", name: "Hampshire", price: 13.99, category: "pork", desc: "Pulled Double H Farm pork barbecue with coleslaw on brioche bun", veg: false, img: "/images/sandwiches/hampshire.jpg" },
+  { id: "kids-turkey", name: "Kid's Turkey", price: 6.50, category: "kids", desc: "Smoked all-natural turkey breast with Havarti cheese and mayonnaise on wheat", veg: false },
+  { id: "kids-ham", name: "Kid's Ham", price: 7.50, category: "kids", desc: "All-natural black forest ham with provolone and mayonnaise on wheat", veg: false },
+];
+
+export default SANDWICHES;
