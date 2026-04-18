@@ -97,7 +97,7 @@ export default function VisitPage() {
           {/* Map */}
           <div className="rounded-lg overflow-hidden border border-walnut/15">
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-78.715%2C38.063%2C-78.695%2C38.073&layer=mapnik&marker=38.068%2C-78.705"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-78.81%2C38.01%2C-78.76%2C38.04&layer=mapnik&marker=38.025%2C-78.785"
               width="100%"
               height="400"
               style={{ border: 0 }}
