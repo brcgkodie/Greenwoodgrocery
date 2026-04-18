@@ -14,7 +14,9 @@ export default function CustomizeDrawer({ sandwich, onClose, onConfirm }) {
       setIncluded(sandwich.ingredients?.map((_, i) => i) || []);
       setQty(1);
       setNotes("");
+      document.body.style.overflow = "hidden";
     }
+    return () => { document.body.style.overflow = ""; };
   }, [sandwich]);
 
   if (!sandwich) return null;
@@ -56,7 +58,7 @@ export default function CustomizeDrawer({ sandwich, onClose, onConfirm }) {
         </button>
 
         {/* Scrollable body */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto min-h-0">
           {/* Image */}
           {s.img && (
             <div className="aspect-[16/9] overflow-hidden sm:rounded-t-2xl">
@@ -143,8 +145,8 @@ export default function CustomizeDrawer({ sandwich, onClose, onConfirm }) {
           </div>
         </div>
 
-        {/* Sticky footer */}
-        <div className="sticky bottom-0 bg-cream border-t border-forest/10 px-6 py-4 sm:px-8 sm:py-5 sm:rounded-b-2xl">
+        {/* Fixed footer */}
+        <div className="shrink-0 bg-cream border-t border-forest/10 px-6 py-4 pb-[calc(1rem+env(safe-area-inset-bottom))] sm:px-8 sm:py-5 sm:pb-5 sm:rounded-b-2xl">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <button
