@@ -41,6 +41,15 @@ export default function Hero() {
       <WheatSprig className="absolute top-12 right-8 w-10 opacity-30 hidden md:block" />
       <WheatSprig className="absolute top-32 right-20 w-8 opacity-20 hidden lg:block rotate-12" />
 
+      {/* Storefront photo */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/hero-storefront.jpg"
+          alt="Greenwood Gourmet Grocery storefront"
+          className="w-full h-full object-cover opacity-10"
+        />
+      </div>
+
       {/* Mountain ridge background */}
       <MountainRidge className="absolute bottom-0 left-0 w-full h-48 md:h-60" />
 

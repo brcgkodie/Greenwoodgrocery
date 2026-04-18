@@ -4,6 +4,14 @@ import WheatSprig from "../assets/WheatSprig";
 export default function Story() {
   return (
     <section id="story" className="chalkboard text-cream relative overflow-hidden">
+      {/* Interior photo background */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/story-interior.jpg"
+          alt="Inside Greenwood Gourmet Grocery"
+          className="w-full h-full object-cover opacity-[0.07]"
+        />
+      </div>
       <div className="max-w-6xl mx-auto px-5 py-20 md:py-28 grid md:grid-cols-12 gap-12 relative z-10">
         <div className="md:col-span-4">
           <div className="font-hand text-gold text-2xl mb-3">our story</div>
