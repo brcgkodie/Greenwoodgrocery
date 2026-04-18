@@ -2,13 +2,15 @@ import React, { useState, useMemo } from "react";
 import usePageMeta from "../hooks/usePageMeta";
 import FilterBar from "../components/FilterBar";
 import SandwichCard from "../components/SandwichCard";
+import CustomizeDrawer from "../components/CustomizeDrawer";
 import { SANDWICHES, filterSandwiches } from "../data/sandwiches";
 import { useShopify } from "../context/ShopifyContext";
 import WheatSprig from "../assets/WheatSprig";
 
 export default function MenuPage() {
   const [filter, setFilter] = useState("all");
-  const { addToCart } = useShopify();
+  const [configuring, setConfiguring] = useState(null);
+  const { addToCart, setCartOpen } = useShopify();
   const filtered = useMemo(() => filterSandwiches(SANDWICHES, filter), [filter]);
 
   usePageMeta({
@@ -17,6 +19,12 @@ export default function MenuPage() {
       "Browse our full sandwich menu — 18 heritage-breed sandwiches made to order daily until 4pm. Turkey, beef, pork, fish, and vegetarian options.",
     path: "/menu",
   });
+
+  const handleConfirm = (item) => {
+    addToCart(item);
+    setConfiguring(null);
+    setCartOpen(true);
+  };
 
   return (
     <section className="relative">
@@ -46,7 +54,7 @@ export default function MenuPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((s) => (
-            <SandwichCard key={s.id} sandwich={s} onAdd={addToCart} />
+            <SandwichCard key={s.id} sandwich={s} onAdd={setConfiguring} />
           ))}
         </div>
 
@@ -60,6 +68,12 @@ export default function MenuPage() {
           </p>
         </div>
       </div>
+
+      <CustomizeDrawer
+        sandwich={configuring}
+        onClose={() => setConfiguring(null)}
+        onConfirm={handleConfirm}
+      />
     </section>
   );
 }

@@ -1,26 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import usePageMeta from "../hooks/usePageMeta";
 import Hero from "../components/Hero";
 import ShopSection from "../components/ShopSection";
 import Story from "../components/Story";
+import SandwichCard from "../components/SandwichCard";
+import CustomizeDrawer from "../components/CustomizeDrawer";
 import { Link } from "react-router-dom";
-import { SANDWICHES, fmt } from "../data/sandwiches";
-import HandDivider from "../assets/HandDivider";
+import { SANDWICHES } from "../data/sandwiches";
+import { useShopify } from "../context/ShopifyContext";
 
 const FEATURED = SANDWICHES.filter((s) => ["berkshire", "blue-slate", "beauregard"].includes(s.id));
 
 export default function HomePage() {
+  const [configuring, setConfiguring] = useState(null);
+  const { addToCart, setCartOpen } = useShopify();
+
   usePageMeta({
     description:
       "Greenwood Gourmet Grocery in Crozet, VA. Heritage sandwiches made to order, hundreds of craft beers and wines, local produce, and specialty provisions on Route 250 since 1999.",
     path: "/",
   });
 
+  const handleConfirm = (item) => {
+    addToCart(item);
+    setConfiguring(null);
+    setCartOpen(true);
+  };
+
   return (
     <>
       <Hero />
 
-      {/* Featured sandwiches teaser */}
+      {/* Featured sandwiches */}
       <section className="border-t border-forest/10">
         <div className="max-w-6xl mx-auto px-5 py-20 md:py-28">
           <div className="font-hand text-gold text-2xl mb-2">from the deli</div>
@@ -34,26 +45,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {FEATURED.map((s) => (
-              <div key={s.id} className="card-rustic overflow-hidden">
-                {s.img && (
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img
-                      src={s.img}
-                      alt={s.name}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                )}
-                <div className="p-5">
-                  <div className="flex items-baseline justify-between mb-2">
-                    <h3 className="font-serif text-forest text-xl">{s.name}</h3>
-                    <span className="font-serif text-forest">{fmt(s.price)}</span>
-                  </div>
-                  <HandDivider className="w-full h-1.5 my-2" />
-                  <p className="text-forest/70 text-sm italic">{s.desc}</p>
-                </div>
-              </div>
+              <SandwichCard key={s.id} sandwich={s} onAdd={setConfiguring} />
             ))}
           </div>
 
@@ -95,6 +87,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <CustomizeDrawer
+        sandwich={configuring}
+        onClose={() => setConfiguring(null)}
+        onConfirm={handleConfirm}
+      />
     </>
   );
 }

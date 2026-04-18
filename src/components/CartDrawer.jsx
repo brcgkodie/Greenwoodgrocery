@@ -20,12 +20,6 @@ export default function CartDrawer() {
 
   const checkoutUrl = getCheckoutUrl();
 
-  const handleCheckout = () => {
-    if (checkoutUrl) {
-      window.location.href = checkoutUrl;
-    }
-  };
-
   return (
     <div className="fixed inset-0 z-50 flex justify-end" onClick={() => setCartOpen(false)}>
       <div className="absolute inset-0 bg-forest/40 backdrop-blur-sm" />
@@ -65,15 +59,33 @@ export default function CartDrawer() {
                       </span>
                     </div>
 
-                    <div className="flex items-center justify-between mt-2">
+                    {/* Bread */}
+                    {item.bread && (
+                      <div className="text-xs text-forest/50 italic">
+                        on {item.bread}{item.grilled ? ", grilled" : ""}
+                      </div>
+                    )}
+
+                    {/* Removed ingredients */}
+                    {item.removed && item.removed.length > 0 && (
+                      <div className="text-xs text-gold/70 mt-1">
+                        <span className="font-semibold">No:</span> {item.removed.join(", ")}
+                      </div>
+                    )}
+
+                    {/* Notes */}
+                    {item.notes && (
+                      <div className="text-xs text-forest/50 italic mt-1">
+                        &ldquo;{item.notes}&rdquo;
+                      </div>
+                    )}
+
+                    {/* Qty controls */}
+                    <div className="flex items-center justify-between mt-3">
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() =>
-                            updateQuantity(
-                              item.lineId,
-                              (item.qty || 1) - 1,
-                              item.shopifyLineItemId
-                            )
+                            updateQuantity(item.lineId, (item.qty || 1) - 1, item.shopifyLineItemId)
                           }
                           className="w-7 h-7 rounded border border-forest/20 flex items-center justify-center text-forest/60 hover:border-forest transition-colors"
                         >
@@ -84,11 +96,7 @@ export default function CartDrawer() {
                         </span>
                         <button
                           onClick={() =>
-                            updateQuantity(
-                              item.lineId,
-                              (item.qty || 1) + 1,
-                              item.shopifyLineItemId
-                            )
+                            updateQuantity(item.lineId, (item.qty || 1) + 1, item.shopifyLineItemId)
                           }
                           className="w-7 h-7 rounded border border-forest/20 flex items-center justify-center text-forest/60 hover:border-forest transition-colors"
                         >
@@ -122,7 +130,7 @@ export default function CartDrawer() {
               {/* Checkout */}
               {isShopifyActive && checkoutUrl ? (
                 <button
-                  onClick={handleCheckout}
+                  onClick={() => { window.location.href = checkoutUrl; }}
                   className="w-full bg-forest text-cream py-4 rounded-lg text-sm tracking-wide hover:bg-forest/90 transition-colors mb-3"
                 >
                   Continue to checkout

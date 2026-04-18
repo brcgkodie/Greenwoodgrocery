@@ -17,11 +17,14 @@ const CHECKOUT_KEY = "greenwood_checkout_id";
 function cartReducer(state, action) {
   switch (action.type) {
     case "ADD": {
-      const existing = state.find((i) => i.id === action.item.id);
-      if (existing) {
-        return state.map((i) => (i.id === action.item.id ? { ...i, qty: i.qty + 1 } : i));
-      }
-      return [...state, { ...action.item, qty: 1, lineId: Date.now() }];
+      const item = action.item;
+      return [...state, {
+        ...item,
+        qty: item.qty || 1,
+        lineId: item.lineId || Date.now(),
+        removed: item.removed || [],
+        notes: item.notes || "",
+      }];
     }
     case "REMOVE":
       return state.filter((i) => i.lineId !== action.lineId);
